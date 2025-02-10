@@ -16,5 +16,7 @@ public class Program
         var isPalindrome = PalindromeNumber9.Run(121);
 
         var romanToInteger = RomanToInteger13.Run("XIV");
+
+        var longestCommonPrefix = LongestCommonPrefix14.Run(new string[] { "flower", "flow", "flight" });
     }
 }
