@@ -6,7 +6,12 @@ public class Program
     {
         var program = new Program();
 
-        var twoSumResult1 = program.TwoSum(new int[] { 2, 7, 11, 15 }, 9);
+        int[] twoSumResult = program.TwoSum(new int[] { 2, 7, 11, 15 }, 9);
+
+        ListNode addTwoNumbersResult = program.AddTwoNumbers(
+            new ListNode(2, new ListNode(4, new ListNode(3))),
+            new ListNode(5, new ListNode(6, new ListNode(4)))
+        );
     }
 
     public int[] TwoSum(int[] nums, int target)
@@ -30,5 +35,47 @@ public class Program
         }
 
         return new int[] { index1, index2 };
+    }
+
+    public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+    {
+        var numberOne = 0;
+        var numberTwo = 0;
+        ListNode current = null;
+        ListNode result = null;
+
+        while (l1 != null)
+        {
+            numberOne = numberOne * 10 + l1.val;
+
+            l1 = l1.next;
+        };
+
+        while (l2 != null)
+        {
+            numberTwo = numberTwo * 10 + l2.val;
+
+            l2 = l2.next;
+        };
+
+        var sum = numberOne + numberTwo;
+
+        foreach (var digit in sum.ToString().Reverse())
+        {
+            var node = new ListNode(int.Parse(digit.ToString()));
+
+            if (result == null)
+            {
+                result = node;
+                current = result;
+            }
+            else
+            {
+                current.next = node;
+                current = current.next;
+            }
+        }
+
+        return result;
     }
 }
