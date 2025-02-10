@@ -14,5 +14,7 @@ public class Program
         );
 
         var isPalindrome = PalindromeNumber9.Run(121);
+
+        var romanToInteger = RomanToInteger13.Run("XIV");
     }
 }
